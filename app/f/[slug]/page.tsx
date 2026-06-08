@@ -1,4 +1,8 @@
 
+export function generateStaticParams() {
+  return [{ slug: 'lead-intake' }];
+}
+
 export default function PublicFormPage() {
   return (
     <main className="shell">

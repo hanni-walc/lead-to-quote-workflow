@@ -1,5 +1,6 @@
 
 import Link from 'next/link';
+import { withBasePath } from "@/lib/site-path";
 
 const stats = [
   { value: '14 min', label: 'Average quote time after intake' },
@@ -37,7 +38,7 @@ export default function HomePage() {
           Capture a lead, qualify it, send a quote, and follow up automatically so more inquiries become paid jobs.
         </p>
         <div className="row">
-          <Link className="button" href="/app">Open demo dashboard</Link>
+          <Link className="button" href={withBasePath('/app')}>Open demo dashboard</Link>
           <a className="ghost" href="#workflow">See the workflow</a>
         </div>
       </section>
