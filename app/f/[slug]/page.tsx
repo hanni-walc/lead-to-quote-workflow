@@ -1,18 +1,20 @@
-export default function RoutePage() {
+
+export default function PublicFormPage() {
   return (
     <main className="shell">
       <section className="frame hero">
-        <p className="eyebrow">Route</p>
-        <h1>Page scaffold</h1>
-        <p className="lead">This route exists so the repo is structurally complete and ready for a real backend implementation.</p>
-        <div className="row">
-          <a className="button" href="/app">Back to dashboard</a>
-          <a className="ghost" href="/">Open landing page</a>
-        </div>
+        <p className="eyebrow">Public intake form</p>
+        <h1>Request a quote.</h1>
+        <p className="lead">Mobile-first form for new customers. Short, fast, and optimized for completion.</p>
       </section>
       <section className="card">
-        <p className="kicker">Implementation note</p>
-        <p className="muted">Replace this scaffold with route-specific behavior, forms, or detail views as the product is implemented.</p>
+        <ul className="list">
+          <li>Name and phone/email</li>
+          <li>Service requested</li>
+          <li>Location</li>
+          <li>Photos or attachments</li>
+          <li>Urgency and preferred callback time</li>
+        </ul>
       </section>
     </main>
   );

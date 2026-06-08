@@ -1,18 +1,33 @@
-export default function RoutePage() {
+
+export default function FormsPage() {
   return (
     <main className="shell">
       <section className="frame hero">
-        <p className="eyebrow">Route</p>
-        <h1>Page scaffold</h1>
-        <p className="lead">This route exists so the repo is structurally complete and ready for a real backend implementation.</p>
-        <div className="row">
-          <a className="button" href="/app">Back to dashboard</a>
-          <a className="ghost" href="/">Open landing page</a>
-        </div>
+        <p className="eyebrow">Lead form builder</p>
+        <h1>Capture the right details up front.</h1>
+        <p className="lead">Ask for the fields that matter: job type, location, urgency, photos, and preferred contact method.</p>
       </section>
-      <section className="card">
-        <p className="kicker">Implementation note</p>
-        <p className="muted">Replace this scaffold with route-specific behavior, forms, or detail views as the product is implemented.</p>
+      <section className="grid cols-2">
+        <article className="card">
+          <p className="kicker">Form fields</p>
+          <ul className="list">
+            <li>Full name</li>
+            <li>Service requested</li>
+            <li>Address or service area</li>
+            <li>Budget range</li>
+            <li>Upload photos</li>
+            <li>Preferred contact method</li>
+          </ul>
+        </article>
+        <article className="card">
+          <p className="kicker">Why it matters</p>
+          <ul className="list">
+            <li>Higher-quality leads</li>
+            <li>Less back-and-forth</li>
+            <li>Better quote accuracy</li>
+            <li>More booked jobs</li>
+          </ul>
+        </article>
       </section>
     </main>
   );

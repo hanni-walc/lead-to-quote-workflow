@@ -1,18 +1,30 @@
-export default function RoutePage() {
+
+const rows = [
+  ['Maya Chen', 'Google Ads', '92', 'hot', '$2,940 quote sent'],
+  ['Jordan Diaz', 'Referral', '66', 'warm', '$1,520 quote drafted'],
+  ['Alyssa Park', 'Instagram', '31', 'cold', 'Needs follow-up'],
+  ['Noah Kim', 'Organic', '58', 'warm', '$3,100 quote queued'],
+];
+
+export default function LeadsPage() {
   return (
     <main className="shell">
       <section className="frame hero">
-        <p className="eyebrow">Route</p>
-        <h1>Page scaffold</h1>
-        <p className="lead">This route exists so the repo is structurally complete and ready for a real backend implementation.</p>
-        <div className="row">
-          <a className="button" href="/app">Back to dashboard</a>
-          <a className="ghost" href="/">Open landing page</a>
-        </div>
+        <p className="eyebrow">Lead inbox</p>
+        <h1>Every lead, sorted by urgency.</h1>
+        <p className="lead">Prioritize hot inquiries first, keep warm leads moving, and never lose a follow-up in a text thread again.</p>
       </section>
       <section className="card">
-        <p className="kicker">Implementation note</p>
-        <p className="muted">Replace this scaffold with route-specific behavior, forms, or detail views as the product is implemented.</p>
+        <table className="table">
+          <thead><tr><th>Name</th><th>Source</th><th>Score</th><th>Stage</th><th>Next action</th></tr></thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row[0]}>
+                <td>{row[0]}</td><td>{row[1]}</td><td>{row[2]}</td><td>{row[3]}</td><td>{row[4]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </section>
     </main>
   );

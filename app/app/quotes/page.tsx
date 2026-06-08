@@ -1,18 +1,47 @@
-export default function RoutePage() {
+
+import { buildQuote, recommendedDepositPercent } from '@/lib/lead-quote';
+
+const quote = buildQuote({
+  basePrice: 2400,
+  addOns: [
+    { label: 'Drone inspection', price: 300 },
+    { label: 'Rush turnaround', price: 200 },
+  ],
+  taxRate: 0.0825,
+  depositRate: recommendedDepositPercent('hot'),
+});
+
+export default function QuotesPage() {
   return (
     <main className="shell">
       <section className="frame hero">
-        <p className="eyebrow">Route</p>
-        <h1>Page scaffold</h1>
-        <p className="lead">This route exists so the repo is structurally complete and ready for a real backend implementation.</p>
-        <div className="row">
-          <a className="button" href="/app">Back to dashboard</a>
-          <a className="ghost" href="/">Open landing page</a>
-        </div>
+        <p className="eyebrow">Quote builder</p>
+        <h1>Fast, repeatable quotes.</h1>
+        <p className="lead">Template pricing, add-ons, tax, and deposit all calculate automatically so the team can send a polished quote in minutes.</p>
       </section>
-      <section className="card">
-        <p className="kicker">Implementation note</p>
-        <p className="muted">Replace this scaffold with route-specific behavior, forms, or detail views as the product is implemented.</p>
+
+      <section className="grid cols-2">
+        <article className="card">
+          <p className="kicker">Line items</p>
+          <table className="table">
+            <tbody>
+              {quote.lines.map((line) => (
+                <tr key={line.label}><td>{line.label}</td><td>${line.price.toFixed(2)}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </article>
+        <article className="card">
+          <p className="kicker">Totals</p>
+          <table className="table">
+            <tbody>
+              <tr><td>Subtotal</td><td>${quote.subtotal.toFixed(2)}</td></tr>
+              <tr><td>Tax</td><td>${quote.tax.toFixed(2)}</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>${quote.total.toFixed(2)}</strong></td></tr>
+              <tr><td>Deposit due</td><td>${quote.depositDue.toFixed(2)}</td></tr>
+            </tbody>
+          </table>
+        </article>
       </section>
     </main>
   );
